@@ -1,0 +1,65 @@
+import { useEffect, useState } from "react";
+import "./ShopPage.css"
+import Nav from "./NavBar";
+function DisplayShiz({id,onClick}){
+    let props=getInfo(id)
+    
+    return(
+        <div className="cardContainer">
+        <div className="cardPic"><img src={props.image}/></div>
+        <div className="cardTitle">{props.title}</div>
+        <div className="cardPrice">{props.price}$</div>
+        <button className="cardButton" onClick={onClick}>Purchase</button>
+        </div>
+    )
+
+}
+function getInfo(id){
+    const [prod,setProd] = useState('a')
+    useEffect(()=>{
+        fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(response => response.json())
+        .then(data => setProd(data));
+        
+        console.log(prod.title)
+    },[])
+    return prod
+}
+export default function Parent({hihi}){
+    const [items,setItems] = useState([])
+    const [count,setCount] = useState(0)
+        function addItem(value){
+        setItems([...items,value])
+        console.log(items)
+        setCount(prevCount=>prevCount+1)
+
+    }
+    return(
+        <>
+        <button onClick={hihi}>CLICK ME FOR IDK</button>
+        <Shop addItema={(id)=>addItem(id)} count={count} sayhi={hihi} />
+        </>
+    )
+}
+function Shop({addItema,count,sayhi}){
+    const ids = Array.from({length:12}, (_,i)=>i+1)
+
+    return(
+        <div className="rootPage">
+            <Nav count={count} />
+        <div className="mainContainer">
+        {/* {prod.title} */}
+        {/* <DisplayShiz id={1}/> */}
+        
+            <button onClick={sayhi}>CLICK ME FOR COOKIES</button>
+        
+        {
+            ids.map((id)=>(
+                <DisplayShiz id={id} key={id} onClick={()=>addItema(id)}/>
+            ))
+        }
+        {/* {DisplayShiz(prod)} */}
+        </div>
+        </div>
+    )
+}

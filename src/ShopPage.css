@@ -1,0 +1,51 @@
+.rootPage{
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(170, 170, 170);
+  /* height: 20px; */
+  width: 250px;
+  border-radius: 12px;
+  border: 2px rgb(202, 249, 255) solid;
+
+  /* overflow: hidden; */
+/* position: absolute; */
+}
+
+.cardTitle,
+.cardPrice {
+  padding: 8px;
+}
+
+.cardPic img {
+  height: 200px;
+  /* background-color: grey; */
+  max-width: 190px;
+  margin: 10px;
+  /* object-fit: cover; */
+}
+
+.mainContainer{
+    display: flex;
+    gap:20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+button{
+  margin: 10px;
+}
+
+.navList{
+display: flex;
+align-items: center;
+justify-content: space-around;
+gap: 8px;
+background-color: #bff8ff;
+padding: 10px;
+}
