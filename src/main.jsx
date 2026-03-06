@@ -7,40 +7,67 @@ import App from './App.jsx'
 import Home from './HomePage.jsx'
 import Parent from './ShopPage.jsx'
 import Cart from './CartPage.jsx'
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, useParams } from "react-router";
+function TheMama(){
+  console.log("IT'S ON")
+  const [items,setItems] = useState([])
+  const [count,setCount] = useState(0)
 
-function onChange(){
-  alert("hihi")
+
+  const {name} = useParams()
+  const lista = []
+  function onChange(n){
+    alert(n)
 }
+
 function Lara(value){
-    const [items,setItems] = useState([])
-    const [count,setCount] = useState(0)
-        function addItem(){
-        setItems([...items,value])
-        console.log(items)
-        setCount(prevCount=>prevCount+1)
-        }
-      }
+  setItems([...items,value])
+  console.log(items)
+  setCount(prevCount=>count+1)
+}
+
+
+// const router = createBrowserRouter([
+//   {
+//     path:"/",
+//     element:<Home butan = { ()=>alert("hihi") } />
+//   },
+//   {
+//     path:"shop",
+//     element:<Parent addItem={ (n)=>{Lara(n)} } hihi={ (n)=>onChange(n) } count={getCount(lista.length)} />
+//   },
+//   {
+//     path:"cart",
+//     element:<Cart hihi={()=>alert("hihi")} items={lista} />
+//   },
+// ])
+return(
+  <div>
+    <h1>Hello there</h1>
+  {name==="shop"?(
+        <Parent addItem={ (n)=>{Lara(n)} } hihi={ (n)=>onChange(n) } count={count} />
+  ): name==="cart"?(
+    <Cart hihi={()=>alert("hihi")} items={items} />
+
+  ): name==="home"?(
+    <Home butan = { ()=>alert("hihi")} count={count} />
+  )
+  :(
+    <>NO PAGE EXIST</>
+  )
+}
+</div>
+  )}
+
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<Home butan = { ()=>alert("hihi") } />
-  },
-  {
-    path:"shop",
-    element:<Parent hihi={(value)=>Lara(value)} />
-  },
-  {
-    path:"cart",
-    element:<Cart hihi={()=>alert("hihi")} />
+    path:"/:name",
+    element:<TheMama />
   },
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    {/* <Home /> */}
-    {/* <Shop /> */}
-    {/* <Idk /> */}
-    <RouterProvider router={router} />
-  </StrictMode>,
-)
+
+  <RouterProvider router={router} />
+</StrictMode>,
+);

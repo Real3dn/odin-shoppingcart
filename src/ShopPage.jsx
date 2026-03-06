@@ -25,18 +25,18 @@ function getInfo(id){
     },[])
     return prod
 }
-export default function Parent({hihi}){
-    const [items,setItems] = useState([])
-    const [count,setCount] = useState(0)
-        function addItem(value){
-        setItems([...items,value])
-        console.log(items)
-        setCount(prevCount=>prevCount+1)
+export default function Parent({addItem,hihi,count}){
+    // const [items,setItems] = useState([])
+    // const [count,setCount] = useState(0)
+    //     function addItem(value){
+    //     setItems([...items,value])
+    //     console.log(items)
+    //     setCount(prevCount=>prevCount+1)
 
-    }
+    // }
     return(
         <>
-        <button onClick={hihi}>CLICK ME FOR IDK</button>
+        <button onClick={()=>hihi(1)}>CLICK ME FOR IDK</button>
         <Shop addItema={(id)=>addItem(id)} count={count} sayhi={hihi} />
         </>
     )
