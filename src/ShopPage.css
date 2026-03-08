@@ -48,5 +48,16 @@ justify-content: space-around;
 gap: 8px;
 background-color: #bff8ff;
 padding: 10px;
-min-width: 90vw;
+width: 100%;
+}
+
+.navBar{
+  position: sticky;
+  top: 0;
+}
+
+.nothingInCart{
+  color: red;
+  font-size: 40px;
+
 }

@@ -26,7 +26,15 @@ function getInfo(id){
     },[])
     return prod
 }
-
+function EmptyCart(){
+    return(
+        <>
+        <div className="nothingInCart">
+            Your cart is empty
+        </div>
+        </>
+    )
+}
 function ok2(){
     const cart = { userId: 1, products: [{ id: 1 }] };
     fetch('https://fakestoreapi.com/carts', {
@@ -69,13 +77,14 @@ ok2()
 export default function Idk({count,items,removeItem}){
     return(
         <div className="rootPage">
-            <Nav count={count} />
+           <div className="navBar"> <Nav count={count} /></div>
         <div className="mainContainer">
         
         {
+            items.length>0?(
             items.map((item)=>(
                 < DisplayShiz id={item[1]} key={item[0]} onClick={()=>removeItem(item[0])}/>
-            ))
+            ))):<EmptyCart/>
 
         }
         </div>
