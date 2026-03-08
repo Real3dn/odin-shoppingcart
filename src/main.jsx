@@ -15,18 +15,22 @@ function TheMama(){
 
 
   const {name} = useParams()
-  const lista = []
   function onChange(n){
     alert(n)
 }
 
 function Lara(value){
-  setItems([...items,value])
+  setItems([...items,[count,value]])
   console.log(items)
   setCount(prevCount=>count+1)
 }
 
-
+function removeItem(id){
+    setItems(prevItems=>
+      prevItems.filter(item=>item[0]!==id)
+    )
+    setCount(prevCount=>count-1)
+}
 // const router = createBrowserRouter([
 //   {
 //     path:"/",
@@ -47,7 +51,7 @@ return(
   {name==="shop"?(
         <Parent addItem={ (n)=>{Lara(n)} } hihi={ (n)=>onChange(n) } count={count} />
   ): name==="cart"?(
-    <Cart hihi={()=>alert("hihi")} items={items} />
+    <Cart hihi={()=>alert("hihi")} count={count} items={items} removeItem={ (n)=>{removeItem(n)} }/>
 
   ): name==="home"?(
     <Home butan = { ()=>alert("hihi")} count={count} />

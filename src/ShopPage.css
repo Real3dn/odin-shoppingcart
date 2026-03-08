@@ -48,4 +48,5 @@ justify-content: space-around;
 gap: 8px;
 background-color: #bff8ff;
 padding: 10px;
+min-width: 90vw;
 }

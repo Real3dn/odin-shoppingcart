@@ -46,19 +46,17 @@ function Shop({addItema,count,sayhi}){
 
     return(
         <div className="rootPage">
-            <Nav count={count} />
+           <div className="navBar"> <Nav count={count} /></div>
         <div className="mainContainer">
         {/* {prod.title} */}
         {/* <DisplayShiz id={1}/> */}
         
-            <button onClick={sayhi}>CLICK ME FOR COOKIES</button>
         
         {
             ids.map((id)=>(
                 <DisplayShiz id={id} key={id} onClick={()=>addItema(id)}/>
             ))
         }
-        {/* {DisplayShiz(prod)} */}
         </div>
         </div>
     )
