@@ -35,45 +35,7 @@ function EmptyCart(){
         </>
     )
 }
-function ok2(){
-    const cart = { userId: 1, products: [{ id: 1 }] };
-    fetch('https://fakestoreapi.com/carts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(cart)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data));
-}
-function oklol(){
-    fetch('https://fakestoreapi.com/carts')
-  .then(response => response.json())
-  .then(data => console.log(data));
-}
-function updateCart(){
-    const cart = { userId: 1, products: [{ id: 2 }] };
-fetch('https://fakestoreapi.com/carts/1', {
-  method: 'PUT',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(cart)
-})
-  .then(response => response.json())
-  .then(data => console.log(data));
 
-}
-
-console.log("oklol")
-oklol()
-console.log("ok2")
-updateCart()
-updateCart()
-updateCart()
-
-oklol()
-oklol()
-oklol()
-ok2()
-// ok2()
 export default function Idk({count,items,removeItem}){
     return(
         <div className="rootPage">
@@ -88,9 +50,6 @@ export default function Idk({count,items,removeItem}){
 
         }
         </div>
-        <button onClick={oklol}>fetch cart</button>
-        <button onClick={updateCart}>update cart</button>
-        hiiiiii
         </div>
     )
 }

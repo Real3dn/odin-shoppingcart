@@ -25,23 +25,14 @@ function getInfo(id){
     },[])
     return prod
 }
-export default function Parent({addItem,hihi,count}){
-    // const [items,setItems] = useState([])
-    // const [count,setCount] = useState(0)
-    //     function addItem(value){
-    //     setItems([...items,value])
-    //     console.log(items)
-    //     setCount(prevCount=>prevCount+1)
-
-    // }
+export default function Parent({addItem,count}){
     return(
         <>
-        <button onClick={()=>hihi(1)}>CLICK ME FOR IDK</button>
-        <Shop addItema={(id)=>addItem(id)} count={count} sayhi={hihi} />
+        <Shop addItema={(id)=>addItem(id)} count={count} />
         </>
     )
 }
-function Shop({addItema,count,sayhi}){
+function Shop({addItema,count}){
     const ids = Array.from({length:12}, (_,i)=>i+1)
 
     return(

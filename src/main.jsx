@@ -15,9 +15,6 @@ function TheMama(){
 
 
   const {name} = useParams()
-  function onChange(n){
-    alert(n)
-}
 
 function Lara(value){
   setItems([...items,[count,value]])
@@ -31,30 +28,16 @@ function removeItem(id){
     )
     setCount(prevCount=>count-1)
 }
-// const router = createBrowserRouter([
-//   {
-//     path:"/",
-//     element:<Home butan = { ()=>alert("hihi") } />
-//   },
-//   {
-//     path:"shop",
-//     element:<Parent addItem={ (n)=>{Lara(n)} } hihi={ (n)=>onChange(n) } count={getCount(lista.length)} />
-//   },
-//   {
-//     path:"cart",
-//     element:<Cart hihi={()=>alert("hihi")} items={lista} />
-//   },
-// ])
 return(
   <div>
     <h1>Hello there</h1>
   {name==="shop"?(
-        <Parent addItem={ (n)=>{Lara(n)} } hihi={ (n)=>onChange(n) } count={count} />
+        <Parent addItem={ (n)=>{Lara(n)} }  count={count} />
   ): name==="cart"?(
-    <Cart hihi={()=>alert("hihi")} count={count} items={items} removeItem={ (n)=>{removeItem(n)} }/>
+    <Cart  count={count} items={items} removeItem={ (n)=>{removeItem(n)} }/>
 
   ): name==="home"?(
-    <Home butan = { ()=>alert("hihi")} count={count} />
+    <Home  count={count} />
   )
   :(
     <>NO PAGE EXIST</>
