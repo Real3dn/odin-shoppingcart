@@ -40,7 +40,7 @@ return(
     <Home  count={count} />
   )
   :(
-    <>NO PAGE EXIST</>
+    <Home count={count}/>
   )
 }
 </div>
@@ -48,7 +48,11 @@ return(
 
 const router = createBrowserRouter([
   {
-    path:"/:name",
+    path:"/",
+    element:<TheMama />
+  }
+  {
+   path:"/:name",
     element:<TheMama />
   },
 ])
