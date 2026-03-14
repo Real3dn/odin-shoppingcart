@@ -1,3 +1,4 @@
+live deployment: https://poetic-khapse-f62ada.netlify.app/home
 so the structure is gonna be like this:
 Home Page:
 some bs (not important)
